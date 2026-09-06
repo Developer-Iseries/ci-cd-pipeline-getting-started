@@ -37,3 +37,17 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy to Production
+        runs:
+          echo "starting deployment'
+          #replace this echo command with actual deployment commands, for example:
+          #ssh user@your-server "cd /path/to/project && git pull && systemctl restart your service"
