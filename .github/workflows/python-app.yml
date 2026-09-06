@@ -49,7 +49,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Deploy to Production
-        runs:
-          echo "starting deployment'
-          #replace this echo command with actual deployment commands, for example:
-          #ssh user@your-server "cd /path/to/project && git pull && systemctl restart your service"
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v4
+          - name: Deploy to Production
+            run: |
+              echo "Starting deployment"
+              # Replace this echo command with actual deployment commands, for example:
+              # ssh user@your-server "cd /path/to/project && git pull && systemctl restart your-service"
